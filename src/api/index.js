@@ -1,7 +1,9 @@
+const koaBodyParser = require('koa-bodyparser')
 const Koa = require('koa')
 const Router = require('@koa/router')
 
 const loadGreetingRoutes = require('./routes/greeting')
+const loadLoginRoutes = require('./routes/login')
 
 class Api {
   constructor(authService, greetingService) {
@@ -14,8 +16,10 @@ class Api {
 
     // Load routes
     loadGreetingRoutes(this)
+    loadLoginRoutes(this)
 
     // Use routes
+    this.koa.use(koaBodyParser())
     this.koa.use(this.router.routes())
   }
 
