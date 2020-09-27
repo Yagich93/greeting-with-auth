@@ -22,7 +22,7 @@ describe('Greeting HTTP API', () => {
 
   it('should return a string', async () => {
     const { data } = await client.get('/greeting')
-    expect(data).to.be.an('string')
+    expect(data).to.be.a('string')
   })
 
   it('should supply auth header to auth service', async () => {
