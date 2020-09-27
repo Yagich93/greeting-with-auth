@@ -10,10 +10,10 @@ const authService = new AuthService(userDbMock)
 const SAMPLE_USER = {
   name: 'User',
   password: 'Pass',
-  token: 'Token'
+  token: 'Token',
 }
 
-describe('Auth Service', () => {
+describe('Auth Service - isValidToken', () => {
   it('should return true for valid token', async () => {
     userDbMock._setSearchResult(SAMPLE_USER)
     expect(authService.isValidToken('valid token')).to.equal(true)

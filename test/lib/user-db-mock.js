@@ -1,13 +1,17 @@
 const userDbMock = {
-  userByToken: null,
+  _foundUser: null,
 
   findByToken: function() {
-    return this.userByToken
+    return this._foundUser
+  },
+
+  findByCredentials: function() {
+    return this._foundUser
   },
 
   _setSearchResult: function(user) {
-    this.userByToken = user
-  }
+    this._foundUser = user
+  },
 }
 
 module.exports = { userDbMock }
